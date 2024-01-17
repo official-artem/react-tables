@@ -57,9 +57,7 @@ export const AccountsTable = memo(
             })}
           </tbody>
         </table>
-        {accountId && (
-          <ProfilesTable table={profilesData} />
-        )}
+        {accountId && <ProfilesTable table={profilesData} />}
       </>
     );
   }
