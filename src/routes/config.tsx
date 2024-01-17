@@ -17,7 +17,7 @@ export const routing = createBrowserRouter([
         index: true,
       },
       {
-        path: "/:accountId",
+        path: "/accounts/:accountId",
         element: <AccountsTable table={accounts} />,
       },
       {

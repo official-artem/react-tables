@@ -32,6 +32,7 @@ export const ProfilesTable = memo(
 
     return (
       <>
+        <h1>{profileId ? "Profile" : "Profiles"}</h1>
         <table className="table">
           <thead>
             <tr>
