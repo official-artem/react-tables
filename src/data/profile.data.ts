@@ -23,7 +23,7 @@ export const profiles: Profile[] = [
     profileId: 4,
     country: 'India',
     marketplace: 'Flipkart',
-    accountId: 1
+    accountId: 2
   },
   {
     profileId: 5,

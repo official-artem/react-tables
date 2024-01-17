@@ -4,7 +4,7 @@ import './styles/Layout.style.css';
 
 const Layout: FC = () => {
   return (
-    <body>
+      <>
       <header className='header'>
         <nav className='nav'>
           <ul className='header__links'>
@@ -12,10 +12,10 @@ const Layout: FC = () => {
               <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/">Accounts</NavLink>
             </li>
             <li className='header__item'>
-              <NavLink className="header__link link-dark link-underline-opacity-0" to="/profiles">Profiles</NavLink>
+              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/profiles">Profiles</NavLink>
             </li>
             <li className='header__item'>
-              <NavLink className="header__link link-dark link-underline-opacity-0" to="/campaigns">Campaigns</NavLink>
+              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/campaigns">Campaigns</NavLink>
             </li>
           </ul>
         </nav>
@@ -23,7 +23,7 @@ const Layout: FC = () => {
       <main>
         <Outlet></Outlet>
       </main>
-    </body>
+    </>
   )
 }
 

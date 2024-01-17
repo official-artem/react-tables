@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import {
@@ -9,7 +8,5 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { routing } from './routes/config.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={routing} />
-  </React.StrictMode>,
+<RouterProvider router={routing} />
 )

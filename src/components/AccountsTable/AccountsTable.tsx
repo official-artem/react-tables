@@ -1,35 +1,71 @@
+import { memo, useEffect, useState } from 'react';
 import { Account } from '../../data/types/account.type';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Profile } from '../../data/types/profile.type';
+import { getAccountData } from '../../utils/getAccountData';
+import ProfilesTable from '../ProfilesTable/ProfilesTable';
+import { getNormalizedDate } from '../../utils/getNormalizedDate';
 
 interface Props {
   table: Account[]
 }
 
-export const AccountsTable = ({table}: Props) => {
-  return (
-    <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">AccountId</th>
-          <th scope="col">Email</th>
-          <th scope="col">AuthToken</th>
-          <th scope="col">CreationDate</th>
-        </tr>
-      </thead>
-      <tbody>
+export const AccountsTable = memo(
+  ({ table }: Props) => {
+    const { accountId } = useParams();
+    const navigate = useNavigate();
+    const [ profilesData, setProfilesData ] = useState<Profile[]>([])
+    const [accounts, setAccounts] = useState<Account[]>(table)
 
-        {table.map(({account_id, authToken, email, creationDate}) => {
-      return (
-        <tr key={account_id}>
-          <th scope="row">{account_id}</th>
-          <td>{email}</td>
-          <td>{authToken}</td>
-          <td>{creationDate.getTime()}</td>
-        </tr>
-      )
-    })}
-      </tbody>
-    </table>
-  )
-}
+    useEffect(() => {
+      if (accountId) {
+        setProfilesData(getAccountData(+accountId));
+        setAccounts(prevState => prevState.filter((account) => account.account_id === +accountId))
+      } else {
+        setAccounts(table);
+      }
+    }, [accountId, table])
+
+    const handleClickRow = (path: string) => {
+      return navigate(path)
+    }
+
+    return (
+      <>
+      <h1>{accountId ? "Account" : "Accounts"}</h1>
+        <table className="table">
+          <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Token</th>
+                <th>Created Date</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {accounts.map(({ account_id, authToken, email, creationDate }) => {
+              return (
+                <tr style={{ cursor: "pointer" }} onClick={() => handleClickRow(`/${account_id}`)} key={account_id}>
+                  <th scope="row">{account_id}</th>
+                  <td>{email}</td>
+                  <td>{authToken}</td>
+                  <td>{getNormalizedDate(creationDate)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {accountId && (
+          <>
+            <h2>Profiles:</h2>
+
+            <ProfilesTable table={profilesData} />
+            </>
+        )}
+      </>
+    );
+  }
+)
 
 export default AccountsTable;

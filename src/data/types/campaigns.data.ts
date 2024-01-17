@@ -55,6 +55,6 @@ export const campaigns: Campaign[] = [
     clicks: 1,
     cost: 543,
     date: new Date(),
-    profileId: 7
+    profileId: 8
   },
 ]
