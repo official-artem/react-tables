@@ -9,7 +9,7 @@ import { campaigns } from '../data/types/campaigns.data';
 
 export const routing = createBrowserRouter([
   {
-    path: "/",
+    path: "/react-tables/",
     element: <Layout />,
     children: [
       {
