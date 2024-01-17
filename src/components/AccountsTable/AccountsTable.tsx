@@ -26,6 +26,7 @@ export const AccountsTable = memo(
       }
     }, [accountId, table])
 
+
     const handleClickRow = (path: string) => {
       return navigate(path)
     }
@@ -46,7 +47,7 @@ export const AccountsTable = memo(
           <tbody>
             {accounts.map(({ account_id, authToken, email, creationDate }) => {
               return (
-                <tr style={{ cursor: "pointer" }} onClick={() => handleClickRow(`/accounts/${account_id}`)} key={account_id}>
+                <tr style={{ cursor: "pointer" }} onClick={() => handleClickRow(`accounts/${account_id}`)} key={account_id}>
                   <th scope="row">{account_id}</th>
                   <td>{email}</td>
                   <td>{authToken}</td>

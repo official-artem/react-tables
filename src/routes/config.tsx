@@ -9,7 +9,7 @@ import { campaigns } from '../data/types/campaigns.data';
 
 export const routing = createBrowserRouter([
   {
-    path: "/",
+    path: "/react-tables/",
     element: <Layout />,
     children: [
       {
@@ -17,11 +17,11 @@ export const routing = createBrowserRouter([
         index: true,
       },
       {
-        path: "/accounts/:accountId",
+        path: "accounts/:accountId",
         element: <AccountsTable table={accounts} />,
       },
       {
-        path: "/profiles",
+        path: "profiles",
         element: <ProfilesTable table={profiles} />,
         children: [
           {
@@ -31,7 +31,7 @@ export const routing = createBrowserRouter([
         ]
       },
       {
-        path: "/campaigns",
+        path: "campaigns",
         element: <CampaignsTable table={campaigns} />
       }
     ]

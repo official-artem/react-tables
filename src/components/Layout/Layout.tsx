@@ -9,13 +9,13 @@ const Layout: FC = () => {
         <nav className='nav'>
           <ul className='header__links'>
             <li className='header__item'>
-              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/">Accounts</NavLink>
+              <NavLink  className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="">Accounts</NavLink>
             </li>
             <li className='header__item'>
-              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/profiles">Profiles</NavLink>
+              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="profiles">Profiles</NavLink>
             </li>
             <li className='header__item'>
-              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="/campaigns">Campaigns</NavLink>
+              <NavLink className="header__link link-dark link-underline-opacity-0 link-underline-opacity-100-hover" to="campaigns">Campaigns</NavLink>
             </li>
           </ul>
         </nav>

@@ -45,7 +45,7 @@ export const ProfilesTable = memo(
 
             {profiles.map(({ profileId, country, marketplace }) => {
               return (
-                <tr style={{ cursor: "pointer" }} onClick={() => handleClickRow(`/profiles/${profileId}`)} key={profileId}>
+                <tr style={{ cursor: "pointer" }} onClick={() => handleClickRow(`${profileId}`)} key={profileId}>
                   <th scope="row">{profileId}</th>
                   <td>{country}</td>
                   <td>{marketplace}</td>
