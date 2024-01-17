@@ -1,0 +1,12 @@
+.header {
+  padding-top: 1rem;
+}
+
+.header__links {
+  display: flex;
+  gap: 1rem;
+}
+
+.header__link {
+  transition: transform 0.3s ease-in;
+}
